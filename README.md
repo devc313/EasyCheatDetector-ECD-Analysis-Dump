@@ -1,8 +1,6 @@
-# EasyCheatDetector (ECD) Analysis Dump via ida pro
+# EasyCheatDetector (ECD) Analysis Dump
 
 # DO YOU WANT TO BYPASS? GO HTTPS://SHOP.CIAEY.CC
-
-
 
 ## 1. Reporting Infrastructure
 *   **Endpoint:** `https://fungun.net/ecd/`
@@ -53,3 +51,22 @@
         3.  **Database Corruption:** If the embedded SQLite DB fails to initialize (Header `0xA6FDD8`), the UI might freeze.
 
 
+## 7. Privacy & Data Collection Audit (Verified)
+The following data is **factually** collected and included in the report sent to `fungun.net`:
+1.  **System Information:**
+    *   `hostname`: The computer's network name (Retrieved via `GetComputerName` / Environment).
+    *   `uuid`: A unique identifier for the machine/session.
+2.  **Game Session Data:**
+    *   `map`: Current map name (e.g., `de_dust2.bsp`).
+    *   `gamehash`: Hash of the game integrity/version.
+    *   `jointime`: Time the server was joined.
+    *   `demopath`: Path to the game demo file.
+    *   `demoplayer`: Name of the player viewing the demo (if applicable).
+3.  **Integrity & Security:**
+    *   `hooked`: Boolean flag indicating if API hooks were detected.
+    *   `hookedaddr`: Address of the detected hook.
+    *   `mem_prot`: Memory protection status of scanned regions.
+    *   `exception`: Crash or error logs.
+    *   **Process & Registry:** Scans for blacklist matches (e.g., `Cheat Engine`) and checks specific Registry keys (via `RegGetValueW`), though no "secret" hidden keys were identified.
+4.  **Network:**
+    *   IP Address is **implicitly** collected by the server (`fungun.net`) upon connection but is not explicitly packed in the client-side JSON report I analyzed.
