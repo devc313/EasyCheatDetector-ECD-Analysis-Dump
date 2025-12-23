@@ -1,4 +1,4 @@
-# EasyCheatDetector (ECD) Analysis Dump
+# EasyCheatDetector (ECD) Analysis Dump via ida pro
 
 # DO YOU WANT TO BYPASS? GO HTTPS://SHOP.CIAEY.CC
 
